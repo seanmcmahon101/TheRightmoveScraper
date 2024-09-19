@@ -9,6 +9,12 @@ This is an enhanced version of an existing Rightmove scraper, designed for impro
 - Utilizes multithreading for efficient scraping of floorplans
 - Note: Floorplans are not always available for all properties
 
+## Using This
+
+For now simply copy and paste the class into your code
+
+Will build the pip for this
+
 ## Use Case
 
 Here's an example of how to use the Rightmove Scraper:
