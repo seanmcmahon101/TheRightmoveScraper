@@ -9,14 +9,14 @@ class TheRightmoveScraper:
     The query to Rightmove can be renewed by calling the `refresh_data` method.
     """
 
-    # Precompiled regex patterns for performance
+    
     POSTCODE_PATTERN = re.compile(r"\b([A-Za-z]{1,2}\d{1,2}[A-Za-z]?)\b")
     FULL_POSTCODE_PATTERN = re.compile(
         r"([A-Za-z]{1,2}\d{1,2}[A-Za-z]?\s\d{1}[A-Za-z]{2})"
     )
     BEDROOM_PATTERN = re.compile(r"\b(\d+)\b")
     PRICE_CLEAN_PATTERN = re.compile(r"[^\d]")
-    MAX_WORKERS = 10  # Max threads for fetching floorplans
+    MAX_WORKERS = 10  
 
     def __init__(self, url: str, get_floorplans: bool = False):
         """Initialize the scraper with a URL from the results of a property
@@ -161,7 +161,7 @@ class TheRightmoveScraper:
         page_count = count // 24
         if count % 24 > 0:
             page_count += 1
-        return min(page_count, 42)  # Rightmove limits results to 42 pages
+        return min(page_count, 42) 
 
     def _get_page(self, request_content: bytes, get_floorplans: bool = False) -> pd.DataFrame:
         """Scrape data from a single page of search results."""
@@ -171,7 +171,6 @@ class TheRightmoveScraper:
         tree = html.fromstring(request_content)
         base = "https://www.rightmove.co.uk"
 
-        # XPaths for different elements
         if "rent" in self.rent_or_sale:
             xp_prices = '//span[@class="propertyCard-priceValue"]/text()'
         else:
@@ -199,7 +198,6 @@ class TheRightmoveScraper:
         else:
             floorplan_urls = [np.nan] * len(weblinks)
 
-        # Ensure all lists are of the same length
         max_length = max(len(prices), len(titles), len(addresses), len(weblinks), len(agent_urls))
         data = {
             "price": prices + [np.nan] * (max_length - len(prices)),
@@ -210,7 +208,7 @@ class TheRightmoveScraper:
             "floorplan_url": floorplan_urls + [np.nan] * (max_length - len(floorplan_urls)),
         }
         df = pd.DataFrame(data)
-        df.dropna(subset=["address"], inplace=True)  # Drop empty rows
+        df.dropna(subset=["address"], inplace=True) 
         return df
 
     def _fetch_floorplans(self, weblinks: List[str]) -> List[Optional[str]]:
