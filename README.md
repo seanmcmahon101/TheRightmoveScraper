@@ -18,7 +18,7 @@ if __name__ == "__main__":
     url = "https://www.rightmove.co.uk/property-to-rent/find.html?locationIdentifier=REGION%5E94028&maxBedrooms=2&minBedrooms=2&maxPrice=1300&propertyTypes=flat&includeLetAgreed=false&mustHave=parking&dontShow=&furnishTypes=furnished&keywords="
 
     try:
-        rm = RightmoveData(url, get_floorplans=True)
+        rm = TheRightmoveScraper(url, get_floorplans=True)
         results = rm.get_results
     except Exception as e:
         print(f"An error occurred while fetching data: {str(e)}")
