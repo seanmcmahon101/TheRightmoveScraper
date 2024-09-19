@@ -75,4 +75,6 @@ You can customize the search parameters by modifying the URL in the script. The 
 - Must have parking
 - Furnished properties
 
-Adjust these parameters in the URL to suit your specific search requirements.
+##The easiest thing to is search on rightmove for your search, include any filters you want. Copy the URL after searching and paste it into the URL variable.
+
+[Visit Rightmove](https://www.rightmove.co.uk/)
