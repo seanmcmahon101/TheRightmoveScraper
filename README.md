@@ -11,9 +11,8 @@ This is an enhanced version of an existing Rightmove scraper, designed for impro
 
 ## Using This
 
-For now simply copy and paste the class into your code
-
-Will build the pip for this
+- For now simply copy and paste the class into your code
+- Will build the pip for this
 
 ## Use Case
 
