@@ -18,6 +18,13 @@ This is an enhanced version of an existing Rightmove scraper, designed for impro
 
 Here's an example of how to use the Rightmove Scraper:
 
+## Simple Use
+
+```python
+rm = TheRightmoveScraper(url, get_floorplans=True)
+results = rm.get_results
+```
+
 ```python
 if __name__ == "__main__":
     url = "https://www.rightmove.co.uk/property-to-rent/find.html?locationIdentifier=REGION%5E94028&maxBedrooms=2&minBedrooms=2&maxPrice=1300&propertyTypes=flat&includeLetAgreed=false&mustHave=parking&dontShow=&furnishTypes=furnished&keywords="
