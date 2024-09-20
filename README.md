@@ -1,5 +1,10 @@
 # The Rightmove Scraper
 
+## Note: 
+
+- You have to use Requests = requests==2.27.1
+- New version breaks it
+
 ## Overview
 
 This is an enhanced version of an existing Rightmove scraper, designed for improved performance and functionality.
